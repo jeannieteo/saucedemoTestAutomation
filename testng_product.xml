@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="login negative for saucedemo" verbose="1" >
+<suite name="product checkd" verbose="1" >
 
     <parameter name="TestURL" value="https://www.saucedemo.com/"> </parameter>
 
-    <test name="login unsucessful" >
+    <test name="product test" >
         <parameter name="Browser" value = "Chrome"></parameter>
         <classes>
-            <class name="com.saucedemoTest.testClasses.loginTests"/>
+            <class name="com.saucedemoTest.testClasses.productTests"/>
             <!--class name="com.saucedemoTest.testClasses"/-->
         </classes>
     </test>

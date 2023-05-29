@@ -9,6 +9,7 @@ public class loginTests extends baseTests {
     @Test(dataProviderClass = excelReaders.class, dataProvider = "getLoginData")
     public void login_UnSuccessful(String username, String password, String expectedError)    {
         loginPageB.login(username, password);
+
         System.out.println("log in: " + username + " pw: " + password + "Expected: " + expectedError + "\n");
         String actualMessage = loginPageB.getErrorMessageText();
         Assert.assertEquals(actualMessage, expectedError, "Actual error message and expected error not same.");

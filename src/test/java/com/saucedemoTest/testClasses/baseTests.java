@@ -1,6 +1,7 @@
 package com.saucedemoTest.testClasses;
 import com.saucedemoTest.Pages.loginPage;
 
+import com.saucedemoTest.Pages.productPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
@@ -26,7 +27,7 @@ public class baseTests {
     public WebDriver driver;
     //declare initialize and clone object from class
     protected loginPage loginPageB;
-    //protected allCoursesPage allCoursesPage;
+    protected productPage productPageP;
     //protected resultsPage resultsPageT;
 
     @BeforeClass
@@ -59,6 +60,7 @@ public class baseTests {
         //driver.manage().window().maximize();
         driver.get(testURL);
         loginPageB = new loginPage(driver);
+        productPageP = new productPage(driver);
 
     }
 

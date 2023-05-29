@@ -26,13 +26,14 @@ public class loginPage extends basePage {
 
 
     //methods
-    public void login(String username, String password) {
+    public productPage login(String username, String password) {
         driverL.findElement(By.id(userNameInput)).clear();
         driverL.findElement(By.id(userNameInput)).sendKeys(username);
         driverL.findElement(By.id(passwordInput)).clear();
         driverL.findElement(By.id(passwordInput)).sendKeys(password);
 
         driverL.findElement(By.id(loginButton)).click();
+        return new productPage(driverL);
     }
 
     public void logout() {

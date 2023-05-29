@@ -1,5 +1,6 @@
 package Utils;
 
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class excelReaders {
+    String path_excel = "/src/main/resources/saucedemotestdata.xlsx";
     @DataProvider
     public Object[][] getLoginData() {
 
@@ -20,7 +22,7 @@ public class excelReaders {
         XSSFRow row = null;
         XSSFCell cell = null;
         String path;
-        path = System.getProperty("user.dir") + "/src/main/resources/saucedemotestdata.xlsx";
+        path = System.getProperty("user.dir") + path_excel;
 
         try {//open file
             fileInput = new FileInputStream(path);
@@ -57,10 +59,9 @@ public class excelReaders {
         FileInputStream fileInput;
         XSSFWorkbook workbook = null;
         XSSFSheet sheet = null;
-        XSSFRow row = null;
-        XSSFCell cell = null;
-        String path;
-        path = System.getProperty("user.dir") + "/main/resources/saucedemotestdata.xlsx";
+        String path, text;
+        path = System.getProperty("user.dir") + path_excel;
+        DataFormatter formatter = new DataFormatter();
 
         try {//open file
             fileInput = new FileInputStream(path);
@@ -85,7 +86,9 @@ public class excelReaders {
         //iterate and populate data
         for (int i = 1; i <= sheet.getLastRowNum(); i++) {//row
             for (int j = 0; j < sheet.getRow(0).getLastCellNum(); j++) {
-                data[i - 1][j] = sheet.getRow(i).getCell(j).getStringCellValue();
+                text = formatter.formatCellValue(sheet.getRow(i).getCell(j));
+                data[i - 1][j] = text;
+                //data[i - 1][j] = sheet.getRow(i).getCell(j).getStringCellValue();
             }
         }
         return data;
