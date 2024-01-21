@@ -1,7 +1,7 @@
-package com.saucedemoTest.testClasses;
-import com.saucedemoTest.Pages.loginPage;
+package saucedemoTestAutomation;
+import saucedemoTestAutomation.Pages.loginPage;
 
-import com.saucedemoTest.Pages.productPage;
+import saucedemoTestAutomation.Pages.productPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;

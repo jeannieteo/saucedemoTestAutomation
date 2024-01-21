@@ -1,8 +1,7 @@
-package com.saucedemoTest.testClasses;
+package saucedemoTestAutomation;
 
 import Utils.excelReaders;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 

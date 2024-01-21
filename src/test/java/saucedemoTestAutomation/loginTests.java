@@ -1,4 +1,4 @@
-package com.saucedemoTest.testClasses;
+package saucedemoTestAutomation;
 import Utils.excelReaders;
 import org.testng.Assert;
 import org.testng.annotations.*;

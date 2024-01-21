@@ -1,4 +1,4 @@
-package com.saucedemoTest.Pages;
+package saucedemoTestAutomation.Pages;
 
 
 import org.openqa.selenium.By;
