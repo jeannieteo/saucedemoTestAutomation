@@ -1,4 +1,8 @@
 package saucedemoTestAutomation;
+import org.apache.logging.log4j.LogManager;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
 import saucedemoTestAutomation.Pages.loginPage;
 
 import saucedemoTestAutomation.Pages.productPage;
@@ -24,14 +28,18 @@ import java.time.Duration;
 
 public class baseTests {
     public WebDriver driver;
+    //logging
+    Logger logger = LogManager.getLogger(baseTests.class);
     //declare initialize and clone object from class
     protected loginPage loginPageB;
     protected productPage productPageP;
+    public boolean loggedIn = false;
     //protected resultsPage resultsPageT;
 
     @BeforeClass
     @Parameters(value={"TestURL", "Browser"})
     public void commonSetUp(String testURL, String browser) {
+        logger.info("-----SETUP ---");
         if (browser.equalsIgnoreCase("Chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("disable-infobars");
@@ -58,6 +66,7 @@ public class baseTests {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         //driver.manage().window().maximize();
         driver.get(testURL);
+        logger.info("Driver get url: " + testURL + "on browser: " + browser + ". ");
         loginPageB = new loginPage(driver);
         productPageP = new productPage(driver);
 
@@ -65,6 +74,10 @@ public class baseTests {
 
     @AfterClass
     public void commonTearDown()  {
+        logger.info("-----TearDOWN ---");
+        if (loggedIn)   {
+            loginPageB.logout();
+        }
 
         //driver.quit();
     }
@@ -72,6 +85,7 @@ public class baseTests {
 
     @AfterMethod
     public void takeScreenshotForFailures(ITestResult testResult)	{
+
         if(ITestResult.FAILURE == testResult.getStatus())	{
             TakesScreenshot screenshot = (TakesScreenshot) driver;
             File source = screenshot.getScreenshotAs(OutputType.FILE);
@@ -82,6 +96,7 @@ public class baseTests {
                 e.printStackTrace();
             }
         }
+
     }
 }
 

@@ -30,7 +30,7 @@ public class excelReaders {
             throw new RuntimeException(e);
         }
 
-        try { //get workbook
+        try { //get workbook from the file
             workbook = new XSSFWorkbook(fileInput);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -49,6 +49,12 @@ public class excelReaders {
             for (int j = 0; j < sheet.getRow(0).getLastCellNum(); j++) {
                 data[i - 1][j] = sheet.getRow(i).getCell(j).getStringCellValue();
             }
+        }
+
+        try {
+            fileInput.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return data;
     }
@@ -80,7 +86,7 @@ public class excelReaders {
         System.out.println("\nProducts workSheet last row: " + sheet.getLastRowNum());
         System.out.println("\nProducts workSheet last cell number: " + sheet.getRow(0).getLastCellNum());
 
-        //define size of object
+        //define size of object [lastrow][lastcolumn]
         Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
 
         //iterate and populate data
@@ -90,6 +96,12 @@ public class excelReaders {
                 data[i - 1][j] = text;
                 //data[i - 1][j] = sheet.getRow(i).getCell(j).getStringCellValue();
             }
+        }
+
+        try {
+            fileInput.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return data;
     }

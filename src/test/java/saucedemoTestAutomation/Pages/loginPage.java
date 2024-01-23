@@ -21,7 +21,7 @@ public class loginPage extends basePage {
     private String loginButton = "login-button";
     //private String shoppingCart = "shopping_cart_container";
     private String burgerMenu = "react-burger-menu-btn";
-    private String logoutLink = "Logout";
+    private String logoutLink = "logout_sidebar_link";
     private String errorMessage = "//*[@id='login_button_container']/div/form/div[3]/h3";
 
 
@@ -51,7 +51,7 @@ public class loginPage extends basePage {
         wait.until(ExpectedConditions.elementToBeClickable(burger));
         burger.click();
 
-        WebElement logoutMenu = driverL.findElement(By.linkText(logoutLink));
+        WebElement logoutMenu = driverL.findElement(By.id(logoutLink));
         wait.until(ExpectedConditions.elementToBeClickable(logoutMenu));
         logoutMenu.click();
 

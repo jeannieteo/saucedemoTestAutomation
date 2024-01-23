@@ -1,15 +1,18 @@
 package saucedemoTestAutomation;
 import Utils.excelReaders;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 
 public class loginTests extends baseTests {
-    boolean loggedIn = false;
+    //logging
+    //Logger logger = LogManager.getLogger(loginTests.class);
     @Test(dataProviderClass = excelReaders.class, dataProvider = "getLoginData")
     public void login_UnSuccessful(String username, String password, String expectedError) {
         loginPageB.login(username, password);
-        //System.out.println("log in: " + username + " pw: " + password + "Expected: " + expectedError + "\n");
+        logger.debug("Test: login_UnSuccessful username : " + username + " pw: " + password + "Expected: " + expectedError + "\n");
         String actualMessage = loginPageB.getErrorMessageText();
         Assert.assertEquals(actualMessage, expectedError, "Actual error message and expected error not same.");
     }
@@ -19,12 +22,12 @@ public class loginTests extends baseTests {
     //    loginPageB.login("standard_user", "secret_sauce");
     //
     //}
-    @AfterMethod
-    public void logOut() {
-        if (loggedIn)   {
-            loginPageB.logout();
-            }
-    }
+    //@AfterMethod
+   // public void logOut() {
+   //     if (loggedIn)   {
+   //         loginPageB.logout();
+   //     }
+   // }
 
 
 }
