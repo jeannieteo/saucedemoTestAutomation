@@ -7,10 +7,9 @@ import org.testng.annotations.*;
 public class loginTests extends baseTests {
     boolean loggedIn = false;
     @Test(dataProviderClass = excelReaders.class, dataProvider = "getLoginData")
-    public void login_UnSuccessful(String username, String password, String expectedError)    {
+    public void login_UnSuccessful(String username, String password, String expectedError) {
         loginPageB.login(username, password);
-
-        System.out.println("log in: " + username + " pw: " + password + "Expected: " + expectedError + "\n");
+        //System.out.println("log in: " + username + " pw: " + password + "Expected: " + expectedError + "\n");
         String actualMessage = loginPageB.getErrorMessageText();
         Assert.assertEquals(actualMessage, expectedError, "Actual error message and expected error not same.");
     }

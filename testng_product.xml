@@ -4,7 +4,7 @@
     <test name="product test" >
         <parameter name="Browser" value = "Chrome"></parameter>
         <classes>
-            <class name="testClasses.saucedemoTestAutomation.productTests"/>
+            <class name="saucedemoTestAutomation.productTests"/>
             <!--class name="com.saucedemoTest.testClasses"/-->
         </classes>
     </test>

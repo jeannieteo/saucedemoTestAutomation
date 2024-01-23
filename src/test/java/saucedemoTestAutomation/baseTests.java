@@ -75,7 +75,7 @@ public class baseTests {
         if(ITestResult.FAILURE == testResult.getStatus())	{
             TakesScreenshot screenshot = (TakesScreenshot) driver;
             File source = screenshot.getScreenshotAs(OutputType.FILE);
-            File destination = new File(System.getProperty("user.dir") + "/test-output/screenshots/" + testResult.getName() + ".png");
+            File destination = new File(System.getProperty("user.dir") + "/target/screenshots/" + testResult.getName() + ".png");
             try {
                 FileHandler.copy(source, destination);
             } catch (IOException e) {

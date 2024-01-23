@@ -28,10 +28,17 @@ public class loginPage extends basePage {
     //methods
     public productPage login(String username, String password) {
         driverL.findElement(By.id(userNameInput)).clear();
-        driverL.findElement(By.id(userNameInput)).sendKeys(username);
+        if (username.equalsIgnoreCase("null") )  {
+            driverL.findElement(By.id(userNameInput)).sendKeys("");
+        }else{
+            driverL.findElement(By.id(userNameInput)).sendKeys(username);
+        }
         driverL.findElement(By.id(passwordInput)).clear();
-        driverL.findElement(By.id(passwordInput)).sendKeys(password);
-
+        if (password.equalsIgnoreCase("null") )  {
+            driverL.findElement(By.id(passwordInput)).sendKeys("");
+        }else{
+            driverL.findElement(By.id(passwordInput)).sendKeys(password);
+        }
         driverL.findElement(By.id(loginButton)).click();
         return new productPage(driverL);
     }
