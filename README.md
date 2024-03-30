@@ -1,4 +1,4 @@
-JAVA TESTNG SELENIUM
+JAVA TESTNG SELENIUM POM
 
 To run:
 mvn clean test
