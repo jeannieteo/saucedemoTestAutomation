@@ -36,6 +36,8 @@ public class baseTests {
     public boolean loggedIn = false;
     //protected resultsPage resultsPageT;
 
+    //@BeforeClass: This will be executed before first @Test method execution.
+    // It will be executed one only time throughout
     @BeforeClass
     @Parameters(value={"TestURL", "Browser"})
     public void commonSetUp(String testURL, String browser) {
@@ -79,7 +81,7 @@ public class baseTests {
             loginPageB.logout();
         }
 
-        //driver.quit();
+        driver.quit();
     }
 
 

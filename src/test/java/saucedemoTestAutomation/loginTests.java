@@ -17,17 +17,10 @@ public class loginTests extends baseTests {
         Assert.assertEquals(actualMessage, expectedError, "Actual error message and expected error not same.");
     }
 
-    //@Test
-    //public void login_successful()    {
-    //    loginPageB.login("standard_user", "secret_sauce");
-    //
-    //}
-    //@AfterMethod
-   // public void logOut() {
-   //     if (loggedIn)   {
-   //         loginPageB.logout();
-   //     }
-   // }
-
+    @Test
+    public void login_successful()    {
+        loginPageB.login("standard_user", "secret_sauce");
+        loggedIn = true;
+    }
 
 }

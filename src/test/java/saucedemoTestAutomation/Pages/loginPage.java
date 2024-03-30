@@ -10,7 +10,9 @@ import java.time.Duration;
 
 public class loginPage extends basePage {
     public loginPage(WebDriver driver) {
-        super(driver);
+        super(driver); //The 'super' keyword allows referencing the parent class or superclass of a subclass in Java.
+        // It is often employed to access members (fields or methods) of the superclass that have been overridden in the
+        // subclass. You can call the superclass's method from within the subclass using super.
         driverL = driver;
 
     }

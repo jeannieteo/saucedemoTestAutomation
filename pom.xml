@@ -71,6 +71,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng_login.xml</suiteXmlFile>
+                        <suiteXmlFile>testng_product.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

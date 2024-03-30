@@ -14,7 +14,7 @@ public class productTests extends baseTests{
     //Logger logger = LogManager.getLogger(productTests.class);
     List<WebElement> productNames;
     List<WebElement> productPrices;
-    @BeforeClass
+    @BeforeClass //login once to run all product testcases
     public void login_success()    {
 
         productPageP = loginPageB.login("standard_user", "secret_sauce");
